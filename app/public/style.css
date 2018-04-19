@@ -1,0 +1,8 @@
+.jumbotron {
+  background: rgb(86, 179, 24);
+  color: rgb(228, 62, 139);
+}
+
+.btn-primary h3 {
+  margin-top: 10px;
+}
