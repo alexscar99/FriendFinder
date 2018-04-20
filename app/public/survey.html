@@ -157,11 +157,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"></button>
-          <h1 class="modal-title">Your Match</h1>
+          <h2 class="modal-title">Reach out and make a new friend!</h2>
         </div>
 
         <div class="modal-body">
-          <h2 id="match-name"></h2>
+          <h2 id="match-name">John Doe</h2>
           <img id="match-photo" src="https://images.megapixl.com/4707/47075253.jpg" alt="">
         </div>
 
@@ -210,10 +210,12 @@
           ]
         };
 
-        // use post to show best match in modal
+        // use post to show best match in modal then show modal
         $.post('/api/friends', surveyData, function (data) {
           $('#match-name').text(data.name);
           $('#match-photo').attr('src', data.photo);
+
+          $('#results-modal').modal('toggle');
         });
       } else {
         alert('Fill out all required fields and answer all questions to submit.');

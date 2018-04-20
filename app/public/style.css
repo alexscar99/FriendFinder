@@ -44,3 +44,16 @@ a {
 #q10 {
   margin-bottom: 35px;
 }
+
+#match-photo {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 30px;
+}
+
+#match-name {
+  text-align: center;
+  margin-bottom: 5%;
+}
