@@ -1,4 +1,4 @@
-var friends = require('../data/friends');
+var friends = require('../data/friends.js');
 
 module.exports = function(app) {
   app.get('/api/friends', function(req, res) {
@@ -6,31 +6,26 @@ module.exports = function(app) {
   });
 
   app.post('/api/friends', function(req, res) {
-    var answersObject = {};
-    // grab every answer array from object
+    var totalDifferenceArray = [];
+    var answerArray = [];
+
     for (var i = 0; i < friends.length; i++) {
-      var surveyAnswers = friends[i].answers;
-      var userNumber = 'User ' + (i + 1);
-      answersObject[userNumber] = surveyAnswers;
+      answerArray.push(friends[i].answers);
+      var totalDifference = 0;
+      for (var x = 0; x < answerArray[i].length; x++) {
+        totalDifference += Math.abs(
+          answerArray[i][x] - parseInt(req.body.answers[x])
+        );
+      }
+      totalDifferenceArray.push(totalDifference);
     }
 
-    console.log(answersObject);
+    var smallestNumber = Math.min.apply(Math, totalDifferenceArray);
 
-    // loop through object
+    var smallestNumberIndex = totalDifferenceArray.indexOf(smallestNumber);
 
-    // subtract new array from each one
-
-    // find total difference
-
-    // lowest difference = match
+    res.json(friends[smallestNumberIndex]);
 
     friends.push(req.body);
-    res.json(true);
-
-    // for (var surveyAnswers in answersObject) {
-    //   if (Math.abs(req.body.answers[i] - friends[] )) {
-
-    //   }
-    // }
   });
 };
