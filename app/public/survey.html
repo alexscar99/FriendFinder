@@ -17,7 +17,7 @@
   <div class="container survey-questions">
     <h1>Survey Questions</h1>
     <hr class="survey-hr">
-    <h2>About You</h2>
+    <h2>Your Profile</h2>
 
     <h4>Name (Required)</h4>
     <input type="text" id="name" class="form-control" required>
@@ -136,7 +136,7 @@
       <option value="5">5 (Strongly Agree)</option>
     </select>
 
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">
       <i class="fa fa-check-circle"></i>
       Submit</button>
     <hr class="survey-hr">
@@ -150,6 +150,76 @@
       </div>
     </div>
   </div>
+
+  <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h1 class="modal-title">Your Match</h1>
+        </div>
+
+        <div class="modal-body">
+          <h2 id="match-name"></h2>
+          <img id="match-photo" src="https://images.megapixl.com/4707/47075253.jpg" alt="">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // get survey answers
+    $('#submit-btn').on('click', function (event) {
+      event.preventDefault();
+
+      // make sure survey is completely filled out
+      function surveyCompletion() {
+        var completedSurvey = true;
+
+        $('.form-control').each(function () {
+          if ($(this).val() === '') { completedSurvey = false };
+        });
+
+        $('.chosen-select').each(function () {
+          if ($(this).val() === '') { completedSurvey = false };
+        });
+        return completedSurvey;
+      }
+
+      // if survey is filed out post data to api
+      if (surveyCompletion()) {
+        var surveyData = {
+          name: $('#name').val(),
+          photo: $('#photo').val(),
+          answers: [
+            $('#q1').val(),
+            $('#q2').val(),
+            $('#q3').val(),
+            $('#q4').val(),
+            $('#q5').val(),
+            $('#q6').val(),
+            $('#q7').val(),
+            $('#q8').val(),
+            $('#q9').val(),
+            $('#q10').val()
+          ]
+        };
+
+        // use post to show best match in modal
+        $.post('/api/friends', surveyData, function (data) {
+          $('#match-name').text(data.name);
+          $('#match-photo').attr('src', data.photo);
+        });
+      } else {
+        alert('Fill out all required fields and answer all questions to submit.');
+      }
+    })
+  </script>
 
 </body>
 
