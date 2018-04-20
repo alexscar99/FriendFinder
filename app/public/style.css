@@ -16,6 +16,10 @@ a:hover {
   margin-top: 10px;
 }
 
+.bottom-links {
+  color: white;
+}
+
 .survey-questions h1,
 .survey-questions h2,
 .survey-questions h4 {
