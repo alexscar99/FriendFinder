@@ -21,7 +21,8 @@ a {
   border: 2px solid #254441;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
   background: #254441;
   border: 2px solid #254441;
   opacity: 0.75;
@@ -56,4 +57,8 @@ a {
 #match-name {
   text-align: center;
   margin-bottom: 5%;
+}
+
+#submit-btn:active {
+  color: ;
 }
