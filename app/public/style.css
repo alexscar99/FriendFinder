@@ -1,8 +1,46 @@
+body {
+  background: #d0f4ea;
+}
+
+a {
+  color: #067bc2;
+}
+
 .jumbotron {
-  background: rgb(86, 179, 24);
-  color: rgb(228, 62, 139);
+  background: #43aa8b;
+  color: white;
 }
 
 .btn-primary h3 {
   margin-top: 10px;
+}
+
+.btn-primary {
+  color: white;
+  background: #254441;
+  border: 2px solid #254441;
+}
+
+.btn-primary:hover {
+  background: #254441;
+  border: 2px solid #254441;
+  opacity: 0.75;
+  transition: all 0.8s;
+  color: white;
+}
+
+.survey-questions {
+  color: #254441;
+}
+
+.survey-questions h4 {
+  padding: 15px 0;
+}
+
+.survey-hr {
+  border-top: 1px solid #254441;
+}
+
+#q10 {
+  margin-bottom: 35px;
 }
