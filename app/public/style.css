@@ -139,9 +139,9 @@ a:hover {
   border: 2px solid #25a58e;
   margin: 0 auto;
   display: block;
-  font-size: 1.6em;
+  font-size: 1.75em;
   opacity: 1;
-  margin: 60px auto;
+  margin: 100px auto;
 }
 
 .btn-block:hover {
