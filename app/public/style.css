@@ -28,15 +28,15 @@ a:hover {
 
 .btn-primary {
   color: black;
-  background: white;
-  border: 2px solid black;
+  background: transparent;
+  border: 3px solid black;
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
   background: black;
-  border: 2px solid white;
+  border: 3px solid black;
   transition: all 0.8s;
   color: white;
   outline: none;
@@ -58,17 +58,34 @@ a:hover {
 }
 
 .survey-questions h1 {
-  margin: 45px auto;
+  margin: 90px auto 110px;
   display: block;
   font-size: 4em;
   border-bottom: 3px solid;
   padding-bottom: 10px;
-  width: 40%;
+  width: 31%;
 }
 
 .survey-questions h2 {
   margin-top: 40px;
   color: white;
+}
+
+.question-underline,
+.header-question-underline {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.question-underline {
+  width: 4%;
+  height: 3px;
+  margin-top: 10px;
+}
+
+.header-question-underline {
+  height: 4px;
+  width: 14%;
 }
 
 .survey-questions h4 {
@@ -80,13 +97,17 @@ a:hover {
 .survey-hr,
 .survey-hr-small {
   border-top: 1px solid #104443;
-  height: 8px;
   border-bottom: 1px solid #104443;
 }
 
+.survey-hr {
+  height: 8px;
+}
+
 .survey-hr-small {
-  width: 20%;
-  margin-top: 40px;
+  width: 50%;
+  margin-top: 55px;
+  height: 4px;
 }
 
 #q10 {
@@ -107,7 +128,7 @@ a:hover {
 }
 
 #photo {
-  margin-bottom: 40px;
+  margin-bottom: 90px;
 }
 
 .btn-block {
